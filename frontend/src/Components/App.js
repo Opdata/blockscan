@@ -4,6 +4,7 @@ import GlobalStyle from '../Styles/GlobalStyle';
 import Theme from '../Styles/Theme';
 import Header from './Containers/Header/ReturnHeader';
 import SponsoredTitle from './Containers/Content/Title/ReturnSponsoredTitle';
+import SearchBar from './Containers/Content/SearchBar/ReturnSearchBar';
 
 const Wrapper = styled.div``;
 
@@ -21,6 +22,7 @@ const App = () => {
         <Header />
         <Body>
           <SponsoredTitle />
+          <SearchBar />
         </Body>
       </Wrapper>
     </ThemeProvider>
