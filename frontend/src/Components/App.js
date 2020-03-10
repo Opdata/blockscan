@@ -24,7 +24,7 @@ const App = () => {
         <Body>
           <SponsoredTitle />
           <SearchBar />
-          {/* <EtherInfo /> */}
+          <EtherInfo />
         </Body>
       </Wrapper>
     </ThemeProvider>
