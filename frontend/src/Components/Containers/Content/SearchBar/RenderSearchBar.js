@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Select from 'react-select';
-import ReactSearchBox from 'react-search-box';
 import FilterData from './FilterData';
 
 const Search = styled.div`

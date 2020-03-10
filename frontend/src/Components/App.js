@@ -5,6 +5,7 @@ import Theme from '../Styles/Theme';
 import Header from './Containers/Header/ReturnHeader';
 import SponsoredTitle from './Containers/Content/Title/ReturnSponsoredTitle';
 import SearchBar from './Containers/Content/SearchBar/ReturnSearchBar';
+import EtherInfo from './Containers/Content/EtherInformation/ReturnEtherInfo';
 
 const Wrapper = styled.div``;
 
@@ -23,6 +24,7 @@ const App = () => {
         <Body>
           <SponsoredTitle />
           <SearchBar />
+          {/* <EtherInfo /> */}
         </Body>
       </Wrapper>
     </ThemeProvider>
