@@ -12,9 +12,10 @@ const Header = styled.div`
 const HeaderDiv = styled.div`
   height: 100%;
   display: flex;
+  margin-left: 316.5px;
+  margin-right: 316.5px;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 69px;
 `;
 
 const HeaderLogoBox = styled.div`
