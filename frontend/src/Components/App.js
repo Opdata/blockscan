@@ -8,6 +8,7 @@ import SearchBar from './Containers/Content/SearchBar/ReturnSearchBar';
 import EtherInfo from './Containers/Content/EtherInformation/ReturnEtherInfo';
 import Banner from './Containers/Content/Banner';
 import Latest from './Containers/Content/Latest/ReturnList';
+import Footer from './Containers/Footer/ReturnFooter';
 
 const Wrapper = styled.div``;
 
@@ -31,6 +32,7 @@ const App = () => {
           <Banner />
           <Latest />
         </Body>
+        <Footer />
       </Wrapper>
     </ThemeProvider>
   );
