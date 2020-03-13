@@ -10,30 +10,33 @@ import Banner from './Containers/Content/Banner';
 import Latest from './Containers/Content/Latest/ReturnList';
 import Footer from './Containers/Footer/ReturnFooter';
 
-const Wrapper = styled.div``;
-
 const Body = styled.div`
+  background-color: #f8f9fa;
+`;
+
+//27인치 확인시 66가 width 동일
+
+const Main = styled.div`
   height: 100%;
-  background-color: darkkhaki;
-  margin-left: 316.5px;
-  margin-right: 316.5px;
+  width: 66%;
+  margin: 0 auto;
 `;
 
 const App = () => {
   return (
     <ThemeProvider theme={Theme}>
       <GlobalStyle />
-      <Wrapper>
+      <Body>
         <Header />
-        <Body>
+        <Main>
           <SponsoredTitle />
           <SearchBar />
           <EtherInfo />
           <Banner />
           <Latest />
-        </Body>
+        </Main>
         <Footer />
-      </Wrapper>
+      </Body>
     </ThemeProvider>
   );
 };
