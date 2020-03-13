@@ -3,121 +3,110 @@ import styled from 'styled-components';
 import BlockItem from './BlockItems';
 
 const StyledDiv = styled.div`
-  height: 500px;
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid black;
-  box-sizing: border-box;
   font-size: 0.8125rem;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.5;
+  display: flex;
+  justify-content: space-between;
 `;
 
-const StyledListDiv = styled.div`
+const StyledListInner = styled.div`
   background-color: white;
-  border: 1px solid black;
   align-items: center;
+  box-shadow: 0 0.5rem 1.2rem rgba(189, 197, 209, 0.2);
 `;
 
 const StyledTitleBox = styled.div`
   padding: 12px;
-  border: 1px solid black;
   border-bottom: 1px solid #e7eaf3;
 `;
 
 const StyledListBox = styled.div`
-  height: 376px;
-  padding: 12px;
-  /* display: block; */
+  padding: 12px 12px 0px 12px;
+  display: flex;
 `;
 
-const ScrollDiv = styled.div`
-  width: 16px;
-  height: 455px;
-  /* height: 100%; */
-  /* height: auto; */
-  position: absolute;
-  display: block;
-  border: 1px solid black;
-  margin: 12px 0;
-  opacity: 1;
-  background-color: blue;
-  align: right;
+const StyledSrollBarBox = styled.div`
+  height: 324px;
+  padding-right: 10px;
+  overflow: auto;
+  float: right;
+  /* 스크롤바 */
+  &::-webkit-scrollbar {
+    background-color: white;
+    width: 1%;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+  }
 `;
 
-const ScrollBox = styled.div`
-  display: block;
-  /* height: 100%; */
-`;
-
-const ScrollBarBox = styled.div`
-  position: absolute;
-  min-height: 50px;
-  height: 224px;
-  max-height: 366px;
-  display: block;
-  cursor: pointer;
-  z-index: 1;
-`;
-
-const ScrollBar = styled.div`
-  background-color: rgba(0, 0, 0, 0.2);
-  width: 4px;
-  margin: 0 auto;
-  border-radius: 16px;
-  text-align: center;
-  display: block;
-`;
-
-const ScrollRail = styled.div`
-  width: 2px;
-  margin: 0 auto;
-  display: block;
-`;
 const ViewAllDiv = styled.div`
   padding: 12px;
   border-top: 1px solid #e7eaf3;
-  display: block;
+  display: flex;
 `;
 
 const ViewAllButton = styled.button`
+  width: 100%;
+  padding: 4.8px 9.6px;
+  border: none;
   background-color: #eaf4fb;
-  border: 0px;
   color: #3498db;
 `;
+// 스크롤 끝을 감지
+// const handleScroll = e => {
+//   const bottom = e.target.scrollHeight - e.target.scrollTop === e.target.clientHeight;
+//   if (bottom) {
+//     console.log('asdfa');
+//   }
+// };
+// <StyledSrollBarBox onScroll={handleScroll}>
 
 const ReturnList = () => {
   return (
     <StyledDiv>
-      <StyledListDiv>
+      <StyledListInner>
         <StyledTitleBox>Latest Blocks</StyledTitleBox>
-        <ScrollDiv>
-          <ScrollBox>
-            <ScrollBarBox>
-              <ScrollBar />
-            </ScrollBarBox>
-            <ScrollRail />
-          </ScrollBox>
-        </ScrollDiv>
         <StyledListBox>
-          <BlockItem />
-          <BlockItem />
-          <BlockItem />
-          <BlockItem />
-          <BlockItem />
-          <BlockItem />
+          <StyledSrollBarBox>
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+          </StyledSrollBarBox>
         </StyledListBox>
         <ViewAllDiv>
           <ViewAllButton>View all blocks</ViewAllButton>
         </ViewAllDiv>
-      </StyledListDiv>
-      <StyledListDiv>
+      </StyledListInner>
+      <StyledListInner>
         <StyledTitleBox>Latest Transactions</StyledTitleBox>
-        <StyledListBox></StyledListBox>
+        <StyledListBox>
+          <StyledSrollBarBox>
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+            <BlockItem />
+          </StyledSrollBarBox>
+        </StyledListBox>
         <ViewAllDiv>
           <ViewAllButton>View all transactions</ViewAllButton>
         </ViewAllDiv>
-      </StyledListDiv>
+      </StyledListInner>
     </StyledDiv>
   );
 };
