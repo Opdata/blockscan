@@ -2,11 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Title = styled.div`
-  height: 100%;
-  display: flex;
-  padding: 20px 0px 12px 0px;
-  /* align-items: center; */
-  border: solid 1px;
+  padding: 20px 0;
 `;
 
 const TitleText = styled.ins`
