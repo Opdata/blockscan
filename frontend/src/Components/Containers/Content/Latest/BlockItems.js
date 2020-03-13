@@ -1,14 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-// 스크롤 hover href 남음
-const BlockDiv = styled.div`
-  flex-wrap: wrap;
-  box-sizing: border-box;
-`;
+
+const BlockItem = styled.div``;
+
+const BlockInner = styled.div``;
 
 const BlockBox = styled.div`
-  /* padding-right: 27.5px; */
   display: flex;
+  margin-bottom: 12px;
 `;
 
 const BlockIconDiv = styled.div`
@@ -45,7 +44,6 @@ const ElapseBox = styled.div`
 const MinerTxEthDiv = styled.div`
   width: 391px;
   padding-left: 7.5px;
-  /* padding-right: 7.5px; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -85,39 +83,38 @@ const EthBox = styled.div`
 `;
 
 const StyledHr = styled.hr`
-  border-top: 1px solid #e7eaf3;
-  margin-top: 12px;
+  border: 0.5px solid #e7eaf3;
   margin-bottom: 12px;
-  opacity: 0.75px;
 `;
 
 const BlockItems = () => {
   return (
-    <BlockDiv>
-      <BlockBox>
-        <BlockIconDiv>
-          <BlockIconBox>BK</BlockIconBox>
-        </BlockIconDiv>
-        <NumberElapseDiv>
-          <NumebrBox>번호</NumebrBox>
-          <ElapseBox>경과시간</ElapseBox>
-        </NumberElapseDiv>
-        <MinerTxEthDiv>
-          <MinerTxDiv>
-            <MinerBox>
-              Miner
-              <MinerName>Spark Pool</MinerName>
-            </MinerBox>
-            <TxBox>
-              <TxCount>144 txns</TxCount>
-              <a>?</a>
-            </TxBox>
-          </MinerTxDiv>
-          <EthBox>2.19873 Eth</EthBox>
-        </MinerTxEthDiv>
-      </BlockBox>
+    <BlockItem>
+      <BlockInner>
+        <BlockBox>
+          <BlockIconDiv>
+            <BlockIconBox>BK</BlockIconBox>
+          </BlockIconDiv>
+          <NumberElapseDiv>
+            <NumebrBox>번호</NumebrBox>
+            <ElapseBox>경과시간</ElapseBox>
+          </NumberElapseDiv>
+          <MinerTxEthDiv>
+            <MinerTxDiv>
+              <MinerBox>
+                Miner
+                <MinerName>Spark Pool</MinerName>
+              </MinerBox>
+              <TxBox>
+                <TxCount>144 txns</TxCount>
+              </TxBox>
+            </MinerTxDiv>
+            <EthBox>2.19873 Eth</EthBox>
+          </MinerTxEthDiv>
+        </BlockBox>
+      </BlockInner>
       <StyledHr />
-    </BlockDiv>
+    </BlockItem>
   );
 };
 
