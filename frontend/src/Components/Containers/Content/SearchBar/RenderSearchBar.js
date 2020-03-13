@@ -4,14 +4,15 @@ import Select from 'react-select';
 import FilterData from './FilterData';
 
 const Search = styled.div`
-  height: 109px;
+  height: 30%;
   padding: 12px 20px 20px 20px;
   margin: 0px 0px 20px 0px;
   background-image: linear-gradient(to right, #1e83e5, #273ea7);
+  border-radius: 0.25rem;
 `;
 
-const SearchDiv = styled.div`
-  /* margin: 0px 0px 20px 0px; */
+const SearchInner = styled.div`
+  /* border: 1px solid black; */
 `;
 
 const TitleBox = styled.div`
@@ -19,7 +20,6 @@ const TitleBox = styled.div`
   justify-content: space-between;
   align-items: center;
   color: white;
-  border: solid 1px;
   margin-bottom: 8px;
 `;
 
@@ -29,24 +29,41 @@ const QuickLinks = styled.h3`
   font-size: 0.8125rem;
   cursor: pointer;
   border-bottom: 1px dashed #97a4af;
+  font-size: 70%;
+  margin: 5px;
 `;
 
 const SearchBox = styled.div`
+  width: 100%;
   display: flex;
-  border: solid 1px;
+  z-index: 2;
 `;
 
 const StyledSelect = styled(Select)`
-  width: 116px;
+  width: 9%;
+  height: 100%;
+  display: block;
   font-size: 0.8125rem;
 `;
 
 const StyledSearchBox = styled.input`
-  width: 100%;
+  width: 85%;
+  border-top-right-radius: 0.125rem;
+  border-bottom-right-radius: 0.125rem;
+  z-index: 1;
 `;
 
 const StyledButton = styled.button`
-  width: 75px;
+  width: 6%;
+  color: white;
+  margin-left: -1px;
+  padding: 11px 12px;
+  background-color: #3498db;
+  border: none;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  z-index: 2;
+  user-select: none;
 `;
 
 const RenderSearchBar = () => {
@@ -58,9 +75,9 @@ const RenderSearchBar = () => {
 
   return (
     <Search>
-      <SearchDiv>
+      <SearchInner>
         <TitleBox>
-          <SearchBarTitle>Ethereum BlockChain Explorer</SearchBarTitle>
+          <SearchBarTitle>Ethereum Blockchain Explorer</SearchBarTitle>
           <QuickLinks>Quick links: ERC-20 Quick links</QuickLinks>
         </TitleBox>
         <SearchBox>
@@ -73,7 +90,7 @@ const RenderSearchBar = () => {
           <StyledSearchBox />
           <StyledButton>Search</StyledButton>
         </SearchBox>
-      </SearchDiv>
+      </SearchInner>
     </Search>
   );
 };
