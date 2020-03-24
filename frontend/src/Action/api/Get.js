@@ -14,17 +14,14 @@ const GetTxs = data => {
 
 export const GetApi = async action => {
   let Data;
-  // console.log('GetApi호출'); //됨
   const result = await axios.get('http://49.50.162.172/api/v1');
   const data = result.data;
   switch (action) {
     case types.LATESTBLOCKS: {
-      // console.log('여기들어옴');
       Data = GetBlocks(data);
       break;
     }
     case types.LATESTTXS: {
-      // console.log('들어옴');
       Data = GetTxs(data);
       break;
     }
