@@ -239,7 +239,7 @@ const RenderDetail = ({ match }) => {
                   <ItemTitle> {Title[1]} </ItemTitle>
                   <ItemValue>
                     {path === 'block' ? (
-                      DetailTimeToText(GetTime(data.timestamp, VIEWTIME))
+                      DetailTimeToText(GetTime(data.timestamp, VIEWTIME), 'long')
                     ) : data.status === 1 ? (
                       <StatusDiv Success>
                         <StatusInner>
@@ -283,7 +283,9 @@ const RenderDetail = ({ match }) => {
                       </ValueA>
                     </ItemValue>
                   ) : (
-                    <ItemValue>{DetailTimeToText(GetTime(data.timestamp, VIEWTIME))}</ItemValue>
+                    <ItemValue>
+                      {(DetailTimeToText(GetTime(data.timestamp, VIEWTIME)), 'long')}
+                    </ItemValue>
                   )}
                 </ContentItems>
                 <ContentItems>

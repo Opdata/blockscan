@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { BLOCKSALL, TXSALL, VIEWTIME } from '../../../../Action/ActionTypes';
 import { GetAll } from '../../../../Action/api/Get';
 import { GetTime } from '../../../../Action/Time';
-import { CuttingData } from '../../../../helper/translate';
+import { CuttingData, DetailTimeToText } from '../../../../helper/translate';
 import { darken, lighten } from 'polished';
 
 const ListDiv = styled.div``;
@@ -45,13 +45,14 @@ const ContentTitle = styled.p`
 `;
 
 const Navigation = styled.div`
-  width: 25%;
+  width: 30%;
 `;
 
 const NavigationBox = styled.div`
   display: flex;
   width: fit-content;
   justify-content: space-between;
+  float: right;
 `;
 
 const NavigationButton = styled.div`
@@ -322,31 +323,31 @@ const RenderList = ({ location, path }) => {
                 <BlockListTable>
                   <BlockAttributeBox>
                     <Styledtr>
-                      <Styledth width={path === 'blocks' ? '8%' : '16%'}>
+                      <Styledth width={path === 'blocks' ? '8%' : '14%'}>
                         {path === 'blocks' ? 'Block' : 'Txn Hash'}
                       </Styledth>
                       <Styledth width={path === 'blocks' ? '15%' : '7%'}>
                         {path === 'blocks' ? 'Age' : 'Block'}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '7%' : '15%'}>
+                      <Styledth width={path === 'blocks' ? '7%' : '17%'}>
                         {path === 'blocks' ? 'Txn' : 'Age'}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '7%' : '20%'}>
+                      <Styledth width={path === 'blocks' ? '7%' : '18%'}>
                         {path === 'blocks' ? 'Uncles' : 'From'}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '20%' : '20%'}>
+                      <Styledth width={path === 'blocks' ? '20%' : '18%'}>
                         {path === 'blocks' ? 'Miner' : 'To'}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '13%' : '15%'}>
+                      <Styledth width={path === 'blocks' ? '10%' : '17%'}>
                         {path === 'blocks' ? 'Gas Used' : 'Value'}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '10%' : '7%'}>
+                      <Styledth width={path === 'blocks' ? '10%' : '9%'}>
                         {path === 'blocks' ? 'Gas Limit' : '[Txn Fee]'}
                       </Styledth>
                       <Styledth width={path === 'blocks' ? '10%' : null}>
                         {path === 'blocks' ? 'Avg.Gas Price' : null}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '10%' : null}>
+                      <Styledth width={path === 'blocks' ? '13%' : null}>
                         {path === 'blocks' ? 'Reward' : null}
                       </Styledth>
                     </Styledtr>
@@ -364,19 +365,7 @@ const RenderList = ({ location, path }) => {
                             <Styledtd>
                               <StyledLink to={`/block/${data.number}`}>{data.number}</StyledLink>
                             </Styledtd>
-                            <Styledtd>
-                              {Time.Days
-                                ? Time.Days + ' days ago ' + Time.Hours + ' hrs ago'
-                                : Time.Hours
-                                ? Time.Hours + ' hrs ago ' + Time.Minutes + ' mins ago'
-                                : Time.Minutes > 1
-                                ? Time.Minutes + ' mins ago'
-                                : Time.Minutes === 1
-                                ? Time.Minutes + ' min ago'
-                                : Time.Seconds
-                                ? Time.Seconds + ' secs ago'
-                                : 0 + ' secs ago'}
-                            </Styledtd>
+                            <Styledtd>{DetailTimeToText(Time, 'short')}</Styledtd>
                             <Styledtd>
                               <StyledLink to={'#'}>{data.txCount}</StyledLink>
                             </Styledtd>
@@ -407,19 +396,7 @@ const RenderList = ({ location, path }) => {
                                 {data.blocksnumber}
                               </StyledLink>
                             </Styledtd>
-                            <Styledtd>
-                              {Time.Days
-                                ? Time.Days + ' days ago ' + Time.Hours + ' hrs ago'
-                                : Time.Hours
-                                ? Time.Hours + ' hrs ago ' + Time.Minutes + ' mins ago'
-                                : Time.Minutes > 1
-                                ? Time.Minutes + ' mins ago'
-                                : Time.Minutes === 1
-                                ? Time.Minutes + ' min ago'
-                                : Time.Seconds
-                                ? Time.Seconds + ' secs ago'
-                                : 0 + ' secs ago'}
-                            </Styledtd>
+                            <Styledtd>{DetailTimeToText(Time, 'short')}</Styledtd>
                             <Styledtd>
                               <StyledLink to={'#'}>{data.from}</StyledLink>
                             </Styledtd>
