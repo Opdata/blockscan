@@ -55,7 +55,6 @@ const StyledButton = styled.button`
   width: 6%;
   color: white;
   margin-left: -1px;
-  padding: 11px 12px;
   background-color: ${props => props.theme.button};
   border: none;
   border-radius: 0.25rem;
