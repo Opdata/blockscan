@@ -35,6 +35,7 @@ const CharInner = styled.div`
   background-image: url(${Chart});
   background-size: contain;
   background-repeat: no-repeat;
+  margin: 0 10px;
 `;
 
 const ThirdInner = styled.div`
