@@ -37,7 +37,7 @@ const BlockIconBox = styled.div`
 `;
 
 const NumberElapseDiv = styled.div`
-  width: 20%;
+  width: 25%;
   display: block;
 `;
 
@@ -48,7 +48,7 @@ const NumberBox = styled(Link)`
 `;
 
 const MinerTxEthDiv = styled.div`
-  width: 70%;
+  width: 65%;
   padding-left: 7.5px;
   display: flex;
   justify-content: space-between;

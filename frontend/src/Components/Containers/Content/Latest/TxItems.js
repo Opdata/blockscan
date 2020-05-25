@@ -37,7 +37,7 @@ const TxsIconBox = styled.div`
 `;
 
 const HashTimestampBox = styled.div`
-  width: 20%;
+  width: 25%;
   display: block;
 `;
 
@@ -52,7 +52,7 @@ const HashBox = styled(Link)`
 `;
 
 const FromToDiv = styled.div`
-  width: 70%;
+  width: 65%;
   padding-left: 7.5px;
   display: flex;
   justify-content: space-between;
