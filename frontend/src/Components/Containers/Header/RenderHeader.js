@@ -15,6 +15,26 @@ const HeaderInner = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+    width: 1200px;
+  }
 `;
 
 const HeaderLogoBox = styled.div`

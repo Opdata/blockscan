@@ -4,16 +4,21 @@ import styled from 'styled-components';
 import TimeStamBox from './TimeItems';
 
 const BlockItem = styled.div`
-  width: 425px;
+  width: 100%;
+  display: flex;
 `;
 
 const BlockInner = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
   border-bottom: 0.5px solid ${props => props.theme.etherinfo};
-  margin-bottom: 12px;
+  margin-right: 10px;
 `;
 
 const BlockBox = styled.div`
   display: flex;
+  width: 100%;
   margin-bottom: 12px;
 `;
 
@@ -21,7 +26,7 @@ const BlockIconDiv = styled.div`
   width: 10%;
   height: 100%;
   margin-right: 8px;
-  display: flex;
+  display: block;
 `;
 
 const BlockIconBox = styled.div`
@@ -31,14 +36,14 @@ const BlockIconBox = styled.div`
   background: ${props => props.theme.ethershadow};
   display: flex;
   justify-content: center;
+  align-items: center;
   user-select: none;
-  padding: 10px;
   border-radius: 5px;
 `;
 
 const NumberElapseDiv = styled.div`
-  width: 25%;
   display: block;
+  width: 25%;
 `;
 
 const NumberBox = styled(Link)`
@@ -53,10 +58,16 @@ const MinerTxEthDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  /* background-color: grey; */
 `;
 
 const MinerTxDiv = styled.div`
   display: block;
+  /* width: 100%; */
+  height: 100%;
+
+  /* border: 1px solid grey; */
 `;
 
 const MinerBox = styled.div`
@@ -65,12 +76,36 @@ const MinerBox = styled.div`
 `;
 
 const MinerName = styled.a`
+  display: block;
   max-width: 132px;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-left: 3px;
+  /* margin-left: 3px; */
   color: ${props => props.theme.button};
   cursor: pointer;
+
+  /* border: 1px solid darkblue; */
+
+  /* 반응형시 max-width 건드려야함 */
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1200px) {
+    max-width: 132px;
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+    max-width: 200px;
+  }
 `;
 
 const TxBox = styled.div``;
@@ -90,16 +125,15 @@ const EthBox = styled.div`
   font-size: 0.60938rem;
   line-height: 1.7;
   letter-spacing: 0.8px;
-  padding: 0 0.5rem;
+  padding: 0 10px;
   align-items: center;
 `;
 
 const BlockItems = ({ index, number, timestamp, miner, txCount, blockReward }) => {
   blockReward = blockReward.toFixed(5);
-
   return (
-    <BlockItem>
-      <BlockInner style={index === 9 ? { marginBottom: '0px', borderBottom: '0px' } : null}>
+    <BlockItem style={index !== 0 ? { marginTop: '12px' } : null}>
+      <BlockInner>
         <BlockBox>
           <BlockIconDiv>
             <BlockIconBox>BK</BlockIconBox>

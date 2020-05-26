@@ -11,7 +11,7 @@ const Footer = styled.div`
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   background-image: linear-gradient(150deg, #19a0ff, #2d1582);
   background-attachment: fixed;
-  margin-top: 55px;
+  margin-top: 40px;
 `;
 
 const FooterInner = styled.div`
@@ -19,6 +19,26 @@ const FooterInner = styled.div`
   margin: 0 auto;
   display: block;
   justify-content: space-between;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+    width: 1200px;
+  }
 `;
 
 const NameAndInfoBox = styled.div`

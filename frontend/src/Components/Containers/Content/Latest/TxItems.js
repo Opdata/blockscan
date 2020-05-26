@@ -4,16 +4,21 @@ import styled from 'styled-components';
 import TimeStamBox from './TimeItems';
 
 const TxsItem = styled.div`
-  width: 425px;
+  width: 100%;
+  display: flex;
 `;
 
 const TxsInner = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
   border-bottom: 0.5px solid ${props => props.theme.etherinfo};
-  margin-bottom: 12px;
+  margin-right: 10px;
 `;
 
 const TxsBox = styled.div`
   display: flex;
+  width: 100%;
   margin-bottom: 12px;
 `;
 
@@ -21,7 +26,7 @@ const TxsIconDiv = styled.div`
   width: 10%;
   height: 100%;
   margin-right: 8px;
-  display: flex;
+  display: block;
 `;
 
 const TxsIconBox = styled.div`
@@ -31,14 +36,14 @@ const TxsIconBox = styled.div`
   background: ${props => props.theme.ethershadow};
   display: flex;
   justify-content: center;
+  align-items: center;
   user-select: none;
-  padding: 10px;
   border-radius: 5px;
 `;
 
 const HashTimestampBox = styled.div`
-  width: 25%;
   display: block;
+  width: 25%;
 `;
 
 const HashBox = styled(Link)`
@@ -107,8 +112,8 @@ const TxsItems = ({ index, hash, timestamp, from, to, txFee }) => {
   txFee = txFee.toFixed(5);
 
   return (
-    <TxsItem>
-      <TxsInner style={index === 9 ? { marginBottom: '0px', borderBottom: '0px' } : null}>
+    <TxsItem style={index !== 0 ? { marginTop: '12px' } : null}>
+      <TxsInner>
         <TxsBox>
           <TxsIconDiv>
             <TxsIconBox>TX</TxsIconBox>

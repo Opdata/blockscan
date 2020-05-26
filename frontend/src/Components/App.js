@@ -13,7 +13,6 @@ const Wrapper = styled.div`
 `;
 
 const WrapperInner = styled.div`
-  width: 950px;
   height: 100%;
   margin: 0 auto;
 
@@ -30,10 +29,11 @@ const WrapperInner = styled.div`
     /*  */
   }
   @media only screen and (min-width: 1200px) {
-    /*  */
+    width: 950px;
   }
   @media only screen and (min-width: 1400px) {
     /*  */
+    width: 1200px;
   }
 `;
 
