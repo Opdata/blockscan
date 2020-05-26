@@ -13,7 +13,6 @@ const TxsInner = styled.div`
   height: 100%;
   display: flex;
   border-bottom: 0.5px solid ${props => props.theme.etherinfo};
-  margin-right: 10px;
 `;
 
 const TxsBox = styled.div`
@@ -44,11 +43,15 @@ const TxsIconBox = styled.div`
 const HashTimestampBox = styled.div`
   display: block;
   width: 25%;
+
+  /* background-color: grey; */
+
+  /*  maxwidth*/
 `;
 
 const HashBox = styled(Link)`
+  width: 100px;
   display: block;
-  max-width: 132px;
   text-decoration: none;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -62,10 +65,35 @@ const FromToDiv = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  /* background-color: grey; */
 `;
 
 const TxDiv = styled.div`
   display: block;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+    max-width: 60%;
+  }
+  @media only screen and (min-width: 1200px) {
+    max-width: 60%;
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+    max-width: 60%;
+  }
+
+  /* background-color: lightgray; */
 `;
 
 const FromBox = styled.div`
@@ -73,10 +101,9 @@ const FromBox = styled.div`
 `;
 
 const From = styled.a`
-  max-width: 132px;
+  margin-left: 3px;
   overflow: hidden;
   text-overflow: ellipsis;
-  margin-left: 3px;
   color: ${props => props.theme.button};
   cursor: pointer;
 `;
@@ -88,24 +115,22 @@ const ToBox = styled.div`
 
 const To = styled.a`
   overflow: hidden;
+  margin-left: 3px;
   text-overflow: ellipsis;
   color: ${props => props.theme.button};
   cursor: pointer;
-  margin-left: 4px;
 `;
 
 const TxFeeBox = styled.div`
-  max-width: 132px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   background-color: ${props => props.theme.etherbackgroundcolor};
   display: flex;
   border-radius: 6.1875rem;
   font-size: 0.60938rem;
   line-height: 1.7;
   letter-spacing: 0.8px;
-  padding: 0 0.5rem;
+  padding: 0 10px;
   align-items: center;
+  margin-right: 10px;
 `;
 
 const TxsItems = ({ index, hash, timestamp, from, to, txFee }) => {

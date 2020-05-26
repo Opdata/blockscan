@@ -12,8 +12,7 @@ const BlockInner = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  border-bottom: 0.5px solid ${props => props.theme.etherinfo};
-  margin-right: 10px;
+  border-bottom: 1px solid ${props => props.theme.etherinfo};
 `;
 
 const BlockBox = styled.div`
@@ -44,9 +43,15 @@ const BlockIconBox = styled.div`
 const NumberElapseDiv = styled.div`
   display: block;
   width: 25%;
+
+  /* background-color: grey; */
+
+  /* maxwidth */
 `;
 
 const NumberBox = styled(Link)`
+  width: 100px;
+  display: block;
   color: ${props => props.theme.button};
   text-decoration: none;
   cursor: pointer;
@@ -64,29 +69,8 @@ const MinerTxEthDiv = styled.div`
 
 const MinerTxDiv = styled.div`
   display: block;
-  /* width: 100%; */
   height: 100%;
 
-  /* border: 1px solid grey; */
-`;
-
-const MinerBox = styled.div`
-  display: flex;
-  justify-content: space-between;
-`;
-
-const MinerName = styled.a`
-  display: block;
-  max-width: 132px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  /* margin-left: 3px; */
-  color: ${props => props.theme.button};
-  cursor: pointer;
-
-  /* border: 1px solid darkblue; */
-
-  /* 반응형시 max-width 건드려야함 */
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
@@ -98,14 +82,35 @@ const MinerName = styled.a`
   }
   @media only screen and (min-width: 1024px) {
     /*  */
+    max-width: 60%;
   }
   @media only screen and (min-width: 1200px) {
-    max-width: 132px;
+    /* max-width: 132px; */
+    max-width: 60%;
   }
   @media only screen and (min-width: 1400px) {
     /*  */
-    max-width: 200px;
+    max-width: 60%;
   }
+  /* background-color: lightgray; */
+`;
+
+const MinerBox = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const MinerName = styled.a`
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 3px;
+  color: ${props => props.theme.button};
+  cursor: pointer;
+
+  /* border: 1px solid darkblue; */
+
+  /* 반응형시 max-width 건드려야함 */
 `;
 
 const TxBox = styled.div``;
@@ -116,9 +121,6 @@ const TxCount = styled.a`
 `;
 
 const EthBox = styled.div`
-  max-width: 132px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   background-color: ${props => props.theme.etherbackgroundcolor};
   display: flex;
   border-radius: 6.1875rem;
@@ -127,6 +129,7 @@ const EthBox = styled.div`
   letter-spacing: 0.8px;
   padding: 0 10px;
   align-items: center;
+  margin-right: 10px;
 `;
 
 const BlockItems = ({ index, number, timestamp, miner, txCount, blockReward }) => {

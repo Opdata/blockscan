@@ -10,7 +10,6 @@ const Header = styled.div`
 `;
 
 const HeaderInner = styled.div`
-  width: 950px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -27,9 +26,11 @@ const HeaderInner = styled.div`
   }
   @media only screen and (min-width: 1024px) {
     /*  */
+    width: 820px;
   }
   @media only screen and (min-width: 1200px) {
     /*  */
+    width: 950px;
   }
   @media only screen and (min-width: 1400px) {
     /*  */

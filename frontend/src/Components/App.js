@@ -26,7 +26,7 @@ const WrapperInner = styled.div`
     /*  */
   }
   @media only screen and (min-width: 1024px) {
-    /*  */
+    width: 820px;
   }
   @media only screen and (min-width: 1200px) {
     width: 950px;

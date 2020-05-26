@@ -6,6 +6,7 @@ import TxsItems from './TxItems';
 import { darken, lighten } from 'polished';
 
 const StyledDiv = styled.div`
+  height: 500px;
   font-size: 13px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -27,7 +28,6 @@ const StyledDiv = styled.div`
   @media only screen and (min-width: 1200px) {
     /*  */
     /* width: 100%; */
-    height: 500px;
   }
   @media only screen and (min-width: 1400px) {
     /*  */
@@ -51,6 +51,7 @@ const StyledListBox = styled.div`
   }
   @media only screen and (min-width: 1024px) {
     /*  */
+    width: 400px;
   }
   @media only screen and (min-width: 1200px) {
     /*  */
@@ -81,6 +82,7 @@ const StyledTitleBox = styled.div`
   }
   @media only screen and (min-width: 1024px) {
     /*  */
+    width: 388px;
   }
   @media only screen and (min-width: 1200px) {
     width: 438px;
@@ -108,7 +110,7 @@ const TitleInner = styled.div`
     /*  */
   }
   @media only screen and (min-width: 1024px) {
-    /*  */
+    width: 388px;
   }
   @media only screen and (min-width: 1200px) {
     width: 438px;
@@ -157,6 +159,8 @@ const StyledListItemInner = styled.div`
     /*  */
     width: 563px;
   }
+
+  /* background-color: lightgray; */
 `;
 
 const ViewAllDiv = styled.div`
@@ -212,28 +216,28 @@ const RenderList = ({ REQUESTBLOCKS, REQUESTTXS, Blocks, Txs }) => {
         </ViewAllDiv>
       </StyledListBox>
       <StyledListBox>
-        <StyledTitleBox>Latest Transactions</StyledTitleBox>
-        <StyledListBox>
-          <StyledListItemInner>
-            {REQUESTTXS && null}
-            {!REQUESTTXS &&
-              Txs &&
-              !null &&
-              Txs.map((data, index) => {
-                return (
-                  <TxsItems
-                    key={index}
-                    index={index}
-                    hash={data.hash}
-                    timestamp={data.timestamp}
-                    from={data.from}
-                    to={data.to}
-                    txFee={data.txFee}
-                  />
-                );
-              })}
-          </StyledListItemInner>
-        </StyledListBox>
+        <StyledTitleBox>
+          <TitleInner>Latest Transactions</TitleInner>
+        </StyledTitleBox>
+        <StyledListItemInner>
+          {REQUESTTXS && null}
+          {!REQUESTTXS &&
+            Txs &&
+            !null &&
+            Txs.map((data, index) => {
+              return (
+                <TxsItems
+                  key={index}
+                  index={index}
+                  hash={data.hash}
+                  timestamp={data.timestamp}
+                  from={data.from}
+                  to={data.to}
+                  txFee={data.txFee}
+                />
+              );
+            })}
+        </StyledListItemInner>
         <ViewAllDiv>
           <ViewAllButton to={`/txs`}>View all transactions</ViewAllButton>
         </ViewAllDiv>

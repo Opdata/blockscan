@@ -15,7 +15,6 @@ const Footer = styled.div`
 `;
 
 const FooterInner = styled.div`
-  width: 950px;
   margin: 0 auto;
   display: block;
   justify-content: space-between;
@@ -30,13 +29,12 @@ const FooterInner = styled.div`
     /*  */
   }
   @media only screen and (min-width: 1024px) {
-    /*  */
+    width: 820px;
   }
   @media only screen and (min-width: 1200px) {
-    /*  */
+    width: 950px;
   }
   @media only screen and (min-width: 1400px) {
-    /*  */
     width: 1200px;
   }
 `;
