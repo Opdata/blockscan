@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import styled from 'styled-components';
 import FilterData from './FilterData';
+import { InnerWidth } from '../../../../helper/CustomHook';
 import Select from 'react-dropdown-select';
 
 const Search = styled.div`
@@ -10,6 +11,26 @@ const Search = styled.div`
   margin: 0px 0px 20px 0px;
   background-image: linear-gradient(to right, #1e83e5, #273ea7);
   border-radius: 0.25rem;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 820px;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 910px;
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+    width: 1200px;
+  }
 `;
 
 const SearchInner = styled.div``;
@@ -41,18 +62,47 @@ const SearchBox = styled.div`
 const StyledSelect = styled(Select)`
   background-color: ${props => props.theme.background};
   font-size: 14px;
+  .css-15e6jke-DropDown {
+    border: none;
+  }
+  .react-dropdown-select-input {
+    display: none;
+  }
 `;
 
 const StyledSearchBox = styled.input`
-  width: 84%;
   border: none;
   border-top-right-radius: 3px;
   border-bottom-right-radius: 3px;
   padding: 12px 16px;
+
+  :focus {
+    outline: none;
+  }
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 820px;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 741.5px;
+    /* 910 의 85퍼 */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+    width: 1200px;
+    /* 해야함 */
+  }
 `;
 
 const StyledButton = styled.button`
-  width: 6%;
   color: white;
   margin-left: -1px;
   background-color: ${props => props.theme.button};
@@ -61,9 +111,36 @@ const StyledButton = styled.button`
   cursor: pointer;
   z-index: 2;
   user-select: none;
+  :focus {
+    outline: none;
+  }
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 820px;
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 45.5px;
+    font-size: 10.5px;
+    /* 910 의 5퍼 */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+    width: 1200px;
+  }
 `;
 
 const RenderSearchBar = () => {
+  const width = InnerWidth();
+
   let history = useHistory();
   const [option, setOption] = useState();
   const [text, setText] = useState();
@@ -118,6 +195,22 @@ const RenderSearchBar = () => {
             onChange={value => {
               onSelect(value);
             }}
+            style={
+              width >= 1400
+                ? { width: 240 }
+                : width >= 1200
+                ? {
+                    width: 79,
+                    fontSize: 10.5,
+                  } //원하는폭에서 -12
+                : width >= 1024
+                ? { width: 240 }
+                : width >= 768
+                ? { width: 240 }
+                : width >= 480
+                ? { width: 240 }
+                : { width: 240 }
+            }
           />
           <StyledSearchBox
             placeholder={'Search by Address / Txn Hash / Block / Token / Ens'}
