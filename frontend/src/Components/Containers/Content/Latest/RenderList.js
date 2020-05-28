@@ -6,7 +6,7 @@ import TxsItems from './TxItems';
 import { darken, lighten } from 'polished';
 
 const StyledDiv = styled.div`
-  height: 500px;
+  height: 450px;
   font-size: 13px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -24,13 +24,14 @@ const StyledDiv = styled.div`
   }
   @media only screen and (min-width: 1024px) {
     /*  */
+    width: 820px;
   }
   @media only screen and (min-width: 1200px) {
     /*  */
-    /* width: 100%; */
+    width: 950px;
   }
   @media only screen and (min-width: 1400px) {
-    /*  */
+    width: 1200px;
   }
 `;
 
@@ -50,17 +51,18 @@ const StyledListBox = styled.div`
     /*  */
   }
   @media only screen and (min-width: 1024px) {
-    /*  */
-    width: 400px;
+    /* 중간폭 20px */
+    width: 398px;
   }
   @media only screen and (min-width: 1200px) {
     /*  */
-    width: 450px;
+    width: 449px;
   }
   @media only screen and (min-width: 1400px) {
     /*  */
     width: 575px;
   }
+  /* 중간 빈공간 고려 */
 
   /* background-color: green; */
 `;
@@ -122,8 +124,6 @@ const TitleInner = styled.div`
 `;
 
 const StyledListItemInner = styled.div`
-  height: 410.5px;
-  /* max-height: 87%; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -151,6 +151,8 @@ const StyledListItemInner = styled.div`
   }
   @media only screen and (min-width: 1024px) {
     /*  */
+    width: 388px;
+    max-height: 364px;
   }
   @media only screen and (min-width: 1200px) {
     width: 438px;

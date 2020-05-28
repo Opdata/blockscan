@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { InnerWidth } from '../../../../helper/CustomHook';
 import Price from '../../../../Assets/Price.svg';
 import Block from '../../../../Assets/Block.svg';
 import Market from '../../../../Assets/Market.svg';
@@ -16,6 +17,28 @@ const EtherInfo = styled.div`
   line-height: 1.5;
   background-color: ${props => props.theme.background};
   box-shadow: 0 0.5rem 1.2rem ${props => props.theme.ethershadow};
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    width: 818px;
+    /* 820 */
+  }
+  @media only screen and (min-width: 1200px) {
+    width: 948px;
+    /* 950 */
+  }
+  @media only screen and (min-width: 1400px) {
+    /* 1200 */
+    width: 1198px;
+  }
 `;
 
 const InfoInner = styled.div`
@@ -32,9 +55,10 @@ const SubInner = styled.div`
 
 const CharInner = styled.div`
   width: 36%;
+  /* height: 300px; */
   background-image: url(${Chart});
-  background-size: contain;
   background-repeat: no-repeat;
+  background-size: 100% 129px;
   margin: 0 10px;
 `;
 
@@ -78,6 +102,8 @@ const Styledhr = styled.hr`
 `;
 
 const RenderEtherInfo = () => {
+  const width = InnerWidth();
+
   return (
     <EtherInfo>
       <InfoInner>
@@ -89,7 +115,7 @@ const RenderEtherInfo = () => {
                 <TitleBox>ETHER PRICE</TitleBox>
               </LatestTransactionBox>
               <LatestTransactionBox>
-                <StlyedText>$119.28 @ 0.02318 BTC (-15.58%)</StlyedText>
+                <StlyedText>$119.28 @ 0.02318 BTC {width <= 1024 ? null : '(-15.58%)'}</StlyedText>
               </LatestTransactionBox>
             </BlockTxDiffiHashinner>
           </ThirdInner>
@@ -111,7 +137,7 @@ const RenderEtherInfo = () => {
             <ImageBox src={Block} />
             <BlockTxDiffiHashinner>
               <LatestTransactionBox>
-                <TitleBox>LATEST BLOCK</TitleBox>
+                <TitleBox>{width <= 1024 ? 'BLOCK' : 'LATEST BLOCK'}</TitleBox>
                 <TitleBox>TRANSACTIONS</TitleBox>
               </LatestTransactionBox>
               <LatestTransactionBox>

@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import FilterData from './FilterData';
 import { InnerWidth } from '../../../../helper/CustomHook';
 import Select from 'react-dropdown-select';
+import { FaSearch } from 'react-icons/fa';
 
 const Search = styled.div`
   height: 30%;
@@ -22,14 +23,16 @@ const Search = styled.div`
     /*  */
   }
   @media only screen and (min-width: 1024px) {
-    width: 820px;
+    width: 780px;
+    /* 820 - 40 */
   }
   @media only screen and (min-width: 1200px) {
     width: 910px;
+    /* 940 - 40 */
   }
   @media only screen and (min-width: 1400px) {
-    /*  */
-    width: 1200px;
+    width: 1160px;
+    /* 1200 - 40 */
   }
 `;
 
@@ -89,7 +92,9 @@ const StyledSearchBox = styled.input`
     /*  */
   }
   @media only screen and (min-width: 1024px) {
-    width: 820px;
+    width: 697px;
+    font-size: 12px;
+    /* 820 85% */
   }
   @media only screen and (min-width: 1200px) {
     width: 741.5px;
@@ -97,8 +102,8 @@ const StyledSearchBox = styled.input`
   }
   @media only screen and (min-width: 1400px) {
     /*  */
-    width: 1200px;
-    /* 해야함 */
+    width: 986px;
+    /* 1160 의 85퍼 */
   }
 `;
 
@@ -125,16 +130,18 @@ const StyledButton = styled.button`
     /*  */
   }
   @media only screen and (min-width: 1024px) {
-    width: 820px;
+    width: 41px;
+    font-size: 10px;
   }
   @media only screen and (min-width: 1200px) {
     width: 45.5px;
-    font-size: 10.5px;
+    font-size: 10px;
     /* 910 의 5퍼 */
   }
   @media only screen and (min-width: 1400px) {
-    /*  */
-    width: 1200px;
+    /* 1160 의 5퍼  */
+    width: 58px;
+    font-size: 14px;
   }
 `;
 
@@ -196,15 +203,17 @@ const RenderSearchBar = () => {
               onSelect(value);
             }}
             style={
+              // 10퍼
+              //원하는폭에서 -12
               width >= 1400
-                ? { width: 240 }
+                ? { width: 104, fonrSize: 14 }
                 : width >= 1200
                 ? {
                     width: 79,
-                    fontSize: 10.5,
-                  } //원하는폭에서 -12
+                    fontSize: 10,
+                  }
                 : width >= 1024
-                ? { width: 240 }
+                ? { width: 70, fontSize: 10 }
                 : width >= 768
                 ? { width: 240 }
                 : width >= 480
@@ -218,7 +227,9 @@ const RenderSearchBar = () => {
               onInput(e.target.value);
             }}
           />
-          <StyledButton onClick={() => subMitRouting()}>Search</StyledButton>
+          <StyledButton onClick={() => subMitRouting()}>
+            {width <= 1024 ? <FaSearch size='15px' /> : 'Search'}
+          </StyledButton>
         </SearchBox>
       </SearchInner>
     </Search>

@@ -25,12 +25,13 @@ const BlockIconDiv = styled.div`
   width: 10%;
   height: 100%;
   margin-right: 8px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const BlockIconBox = styled.div`
   width: 100%;
-  height: 100%;
   cursor: default;
   background: ${props => props.theme.ethershadow};
   display: flex;
@@ -38,6 +39,29 @@ const BlockIconBox = styled.div`
   align-items: center;
   user-select: none;
   border-radius: 5px;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+    height: 80%;
+    font-size: 11px;
+  }
+  @media only screen and (min-width: 1200px) {
+    /* max-width: 132px; */
+    height: 100%;
+    font-size: 13px;
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const NumberElapseDiv = styled.div`
