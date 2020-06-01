@@ -43,11 +43,14 @@ const BlockIconBox = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    height: 80%;
+    /* display: none; */
   }
   @media only screen and (min-width: 768px) {
     /*  */
+    height: 100%;
   }
   @media only screen and (min-width: 1024px) {
     /*  */
@@ -66,11 +69,33 @@ const BlockIconBox = styled.div`
 
 const NumberElapseDiv = styled.div`
   display: block;
-  width: 25%;
+  /* width: 18%; */
 
   /* background-color: grey; */
 
   /* maxwidth */
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    /* display: flex; */
+    width: 18%;
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    width: 18%;
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+    width: 25%;
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const NumberBox = styled(Link)`
@@ -82,13 +107,35 @@ const NumberBox = styled(Link)`
 `;
 
 const MinerTxEthDiv = styled.div`
-  width: 65%;
-  padding-left: 7.5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   /* background-color: grey; */
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    /* background-color: red; */
+    width: 72%;
+    /* padding-left: 3px; */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    /* padding-left: 7.5px; */
+    width: 72%;
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+    width: 65%;
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const MinerTxDiv = styled.div`
@@ -98,8 +145,10 @@ const MinerTxDiv = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    max-width: 60%;
+    /* background-color: red; */
   }
   @media only screen and (min-width: 768px) {
     /*  */

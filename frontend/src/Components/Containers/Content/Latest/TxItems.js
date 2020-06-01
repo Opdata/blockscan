@@ -41,11 +41,13 @@ const TxsIconBox = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    height: 80%;
   }
   @media only screen and (min-width: 768px) {
     /*  */
+    height: 100%;
   }
   @media only screen and (min-width: 1024px) {
     /*  */
@@ -64,15 +66,35 @@ const TxsIconBox = styled.div`
 
 const HashTimestampBox = styled.div`
   display: block;
-  width: 25%;
 
   /* background-color: grey; */
 
   /*  maxwidth*/
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    width: 18%;
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    width: 18%;
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+    width: 25%;
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const HashBox = styled(Link)`
-  width: 100px;
+  max-width: 80%;
   display: block;
   text-decoration: none;
   overflow: hidden;
@@ -82,13 +104,32 @@ const HashBox = styled(Link)`
 `;
 
 const FromToDiv = styled.div`
-  width: 65%;
-  padding-left: 7.5px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   /* background-color: grey; */
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    width: 72%;
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    width: 72%;
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+    width: 65%;
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const TxDiv = styled.div`
@@ -97,8 +138,9 @@ const TxDiv = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    max-width: 60%;
   }
   @media only screen and (min-width: 768px) {
     /*  */
@@ -131,7 +173,6 @@ const From = styled.a`
 `;
 
 const ToBox = styled.div`
-  max-width: 132px;
   display: flex;
 `;
 
@@ -141,6 +182,8 @@ const To = styled.a`
   text-overflow: ellipsis;
   color: ${props => props.theme.button};
   cursor: pointer;
+
+  max-width: 60%;
 `;
 
 const TxFeeBox = styled.div`

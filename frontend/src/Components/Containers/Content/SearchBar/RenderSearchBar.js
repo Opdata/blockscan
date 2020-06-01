@@ -16,11 +16,13 @@ const Search = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    /* 440 - 40 */
   }
   @media only screen and (min-width: 768px) {
-    /*  */
+    width: 670px;
+    /* 710 - 40 */
   }
   @media only screen and (min-width: 1024px) {
     width: 780px;
@@ -44,6 +46,17 @@ const TitleBox = styled.div`
   align-items: center;
   color: ${props => props.theme.background};
   margin-bottom: 8px;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 14px;
+  }
 `;
 
 const SearchBarTitle = styled.h2``;
@@ -83,17 +96,18 @@ const StyledSearchBox = styled.input`
     outline: none;
   }
   @media only screen and (max-width: 479.98px) {
-    /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    width: 85%;
   }
   @media only screen and (min-width: 768px) {
-    /*  */
+    width: 663px;
+    font-size: 12px;
+    /* 780 85% */
   }
   @media only screen and (min-width: 1024px) {
     width: 697px;
-    font-size: 12px;
     /* 820 85% */
   }
   @media only screen and (min-width: 1200px) {
@@ -114,7 +128,6 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 0.25rem;
   cursor: pointer;
-  z-index: 2;
   user-select: none;
   :focus {
     outline: none;
@@ -123,15 +136,17 @@ const StyledButton = styled.button`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    width: 10%;
   }
   @media only screen and (min-width: 768px) {
-    /*  */
+    width: 39px;
+    /* 780 의 5퍼 */
   }
   @media only screen and (min-width: 1024px) {
     width: 41px;
-    font-size: 10px;
+    /* 820 의 5퍼 // 1024 이하부터 아이콘으로 대체 */
   }
   @media only screen and (min-width: 1200px) {
     width: 45.5px;
@@ -208,17 +223,12 @@ const RenderSearchBar = () => {
               width >= 1400
                 ? { width: 104, fonrSize: 14 }
                 : width >= 1200
-                ? {
-                    width: 79,
-                    fontSize: 10,
-                  }
+                ? { width: 79, fontSize: 10 }
                 : width >= 1024
                 ? { width: 70, fontSize: 10 }
                 : width >= 768
-                ? { width: 240 }
-                : width >= 480
-                ? { width: 240 }
-                : { width: 240 }
+                ? { width: 66, fontSize: 10 }
+                : { display: 'none' }
             }
           />
           <StyledSearchBox

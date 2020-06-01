@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { InnerWidth } from '../../../helper/CustomHook';
 import logo from '../../../Assets/logo-ether.png';
 
 const Header = styled.div`
@@ -18,11 +19,14 @@ const HeaderInner = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    width: 95%;
+    height: 55px;
   }
   @media only screen and (min-width: 768px) {
     /*  */
+    width: 710px;
   }
   @media only screen and (min-width: 1024px) {
     /*  */
@@ -53,7 +57,6 @@ const HeaderLogoIcon = styled.div`
 `;
 
 const HeaderMenuDiv = styled.div`
-  width: 100%;
   height: 100%;
   display: flex;
 `;
@@ -65,10 +68,62 @@ const HeaderMenuInner = styled.div`
 `;
 
 const HeaderMenuBox = styled.div`
-  width: 100%;
-  justify-content: space-between;
-  font-size: 15px;
-  margin-left: 30px;
+  /* width: 100%; */
+  display: flex;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    align-items: center;
+    margin: 15px 0;
+    font-size: 13px;
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    /* width: 710px; */
+    font-size: 15px;
+    margin-left: 30px;
+    justify-content: space-between;
+  }
+  @media only screen and (min-width: 1024px) {
+    /* width: 820px; */
+  }
+  @media only screen and (min-width: 1200px) {
+    /* width: 950px; */
+  }
+  @media only screen and (min-width: 1400px) {
+    /* width: 1200px; */
+    /* width: 100%; */
+  }
+
+  /* background-color: lightgray; */
+`;
+
+const StyledMenu = styled.div`
+  display: flex;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+`;
+
+const StyledSvg = styled.svg`
+  :hover {
+    fill: ${props => props.theme.button};
+  }
+`;
+
+const SubMenu = styled.div`
+  display: flex;
+  flex-direction: column;
+  /* background-color: grey; */
+`;
+
+const SubMenuInner = styled.div`
+  width: 90%;
+  margin: 0 auto;
+  /* background-color: darkblue; */
 `;
 
 const StyledLink = styled(Link)`
@@ -82,6 +137,9 @@ const StyledLink = styled(Link)`
 `;
 
 const RenderHeader = () => {
+  const width = InnerWidth();
+  const [menu, setMenu] = useState(false);
+
   return (
     <Header>
       <HeaderInner>
@@ -90,8 +148,50 @@ const RenderHeader = () => {
             <HeaderLogoIcon url={logo} />
           </StyledLink>
         </HeaderLogoBox>
-        <HeaderMenuDiv>
-          <HeaderMenuInner>
+        {width < 768 ? (
+          <>
+            <HeaderMenuDiv>
+              <HeaderMenuBox>
+                <StyledMenu
+                  onClick={() => {
+                    setMenu(!menu);
+                  }}>
+                  <StyledSvg>
+                    {menu ? (
+                      <path d='M12 11.293l10.293-10.293.707.707-10.293 10.293 10.293 10.293-.707.707-10.293-10.293-10.293 10.293-.707-.707 10.293-10.293-10.293-10.293.707-.707 10.293 10.293z' />
+                    ) : (
+                      <path d='M24 18v1h-24v-1h24zm0-6v1h-24v-1h24zm0-6v1h-24v-1h24z' />
+                    )}
+                  </StyledSvg>
+                </StyledMenu>
+              </HeaderMenuBox>
+            </HeaderMenuDiv>
+          </>
+        ) : (
+          <HeaderMenuDiv>
+            <HeaderMenuInner>
+              <HeaderMenuBox>
+                <StyledLink to={`/`}>Home</StyledLink>
+              </HeaderMenuBox>
+              <HeaderMenuBox>
+                <StyledLink to={`/blocks`}>Blocks</StyledLink>
+              </HeaderMenuBox>
+              <HeaderMenuBox>
+                <StyledLink to={`/txs`}>Transactions</StyledLink>
+              </HeaderMenuBox>
+              <HeaderMenuBox>
+                <StyledLink to={`/`}>Resources</StyledLink>
+              </HeaderMenuBox>
+              <HeaderMenuBox>
+                <StyledLink to={`/`}>More</StyledLink>
+              </HeaderMenuBox>
+            </HeaderMenuInner>
+          </HeaderMenuDiv>
+        )}
+      </HeaderInner>
+      {menu && (
+        <SubMenu>
+          <SubMenuInner>
             <HeaderMenuBox>
               <StyledLink to={`/`}>Home</StyledLink>
             </HeaderMenuBox>
@@ -107,9 +207,9 @@ const RenderHeader = () => {
             <HeaderMenuBox>
               <StyledLink to={`/`}>More</StyledLink>
             </HeaderMenuBox>
-          </HeaderMenuInner>
-        </HeaderMenuDiv>
-      </HeaderInner>
+          </SubMenuInner>
+        </SubMenu>
+      )}
     </Header>
   );
 };

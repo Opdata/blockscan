@@ -9,7 +9,6 @@ import Chart from '../../../../Assets/Chart.jpg';
 
 const EtherInfo = styled.div`
   height: 30%;
-  padding: 12px 0;
   margin: 0px 0px 20px;
   border: 1px solid ${props => props.theme.etherinfo};
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
@@ -21,11 +20,13 @@ const EtherInfo = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    padding: 12px;
   }
   @media only screen and (min-width: 768px) {
     /*  */
+    padding: 12px 0;
   }
   @media only screen and (min-width: 1024px) {
     width: 818px;
@@ -42,29 +43,115 @@ const EtherInfo = styled.div`
 `;
 
 const InfoInner = styled.div`
-  display: flex;
-  justify-content: space-between;
+  /* background-color: red; */
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    display: block;
+    /* margin: 0 10px; */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    display: flex;
+    justify-content: space-between;
+  }
+  @media only screen and (min-width: 1024px) {
+    /* */
+  }
+  @media only screen and (min-width: 1200px) {
+    /* */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const SubInner = styled.div`
-  width: 32%;
-  border-right: 1px solid ${props => props.theme.etherinfo};
-  margin-left: 12px;
-  padding-right: 15px;
+  /* flex-direction: column; */
+  display: block;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    width: 32%;
+    border-right: 1px solid ${props => props.theme.etherinfo};
+    margin-left: 12px;
+    padding-right: 15px;
+  }
+  @media only screen and (min-width: 1024px) {
+    /* */
+  }
+  @media only screen and (min-width: 1200px) {
+    /* */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const CharInner = styled.div`
   width: 36%;
-  /* height: 300px; */
   background-image: url(${Chart});
   background-repeat: no-repeat;
-  background-size: 100% 129px;
+  background-size: 100% 128px;
   margin: 0 10px;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    background-size: 100% 115px;
+  }
+  @media only screen and (min-width: 1024px) {
+    background-size: 100% 120px;
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    background-size: 100% 128px;
+  }
 `;
 
 const ThirdInner = styled.div`
-  display: flex;
-  align-items: center;
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    /* flex-direction: column; */
+    /* display: block; */
+    display: flex;
+    align-items: center;
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    display: flex;
+    align-items: center;
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const BlockTxDiffiHashinner = styled.div`
@@ -75,30 +162,119 @@ const LatestTransactionBox = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    /* align-items: center; */
+    /* justify-content: center; */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const TitleBox = styled.div`
   display: block;
   color: ${props => props.theme.draksubtitle};
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    font-size: 10px;
+  }
+  @media only screen and (min-width: 768px) {
+  }
+  @media only screen and (min-width: 1024px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1400px) {
+  }
 `;
 
 const StlyedText = styled.div`
   color: ${props => props.theme.black};
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+  }
+  @media only screen and (min-width: 768px) {
+    font-size: 11px;
+  }
+  @media only screen and (min-width: 1024px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1400px) {
+  }
 `;
 
 const ImageBox = styled.img`
   width: 30px;
   height: 30px;
   padding-right: 10px;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1400px) {
+  }
 `;
 
 const Styledhr = styled.hr`
-  width: 95%;
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
-  opacity: 0.75px;
-  border: 0;
+  width: 100%;
   border: 0.5px solid ${props => props.theme.etherinfo};
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    margin: 20px 0;
+    opacity: 0.75;
+  }
+  @media only screen and (min-width: 768px) {
+    margin: 25.6px 0;
+  }
+  @media only screen and (min-width: 1024px) {
+  }
+  @media only screen and (min-width: 1200px) {
+  }
+  @media only screen and (min-width: 1400px) {
+  }
 `;
 
 const RenderEtherInfo = () => {
@@ -132,6 +308,7 @@ const RenderEtherInfo = () => {
             </BlockTxDiffiHashinner>
           </ThirdInner>
         </SubInner>
+        {width < 768 && <Styledhr />}
         <SubInner>
           <ThirdInner>
             <ImageBox src={Block} />

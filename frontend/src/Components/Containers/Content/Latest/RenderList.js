@@ -6,7 +6,6 @@ import TxsItems from './TxItems';
 import { darken, lighten } from 'polished';
 
 const StyledDiv = styled.div`
-  height: 450px;
   font-size: 13px;
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -16,15 +15,21 @@ const StyledDiv = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    flex-direction: column;
   }
   @media only screen and (min-width: 768px) {
     /*  */
+    width: 710px;
+    flex-direction: column;
   }
   @media only screen and (min-width: 1024px) {
     /*  */
     width: 820px;
+    height: 450px;
+    flex-direction: row;
+    margin-bottom: 50px;
   }
   @media only screen and (min-width: 1200px) {
     /*  */
@@ -44,15 +49,19 @@ const StyledListBox = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    margin-bottom: 20px;
   }
   @media only screen and (min-width: 768px) {
     /*  */
+    width: 710px;
+    margin-bottom: 20px;
   }
   @media only screen and (min-width: 1024px) {
     /* 중간폭 20px */
     width: 398px;
+    margin-bottom: 0%;
   }
   @media only screen and (min-width: 1200px) {
     /*  */
@@ -70,13 +79,12 @@ const StyledListBox = styled.div`
 const StyledTitleBox = styled.div`
   padding: 5px 0 0 12px;
   height: 29px;
-  /* background-color: yellow; */
   border-bottom: 1px solid ${props => props.theme.etherinfo};
 
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
   }
   @media only screen and (min-width: 768px) {
@@ -105,7 +113,7 @@ const TitleInner = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
   }
   @media only screen and (min-width: 768px) {
@@ -143,11 +151,13 @@ const StyledListItemInner = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    max-height: 364px;
   }
   @media only screen and (min-width: 768px) {
     /*  */
+    max-height: 364px;
   }
   @media only screen and (min-width: 1024px) {
     /*  */

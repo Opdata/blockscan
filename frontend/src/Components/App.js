@@ -19,11 +19,13 @@ const WrapperInner = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    width: 95%;
   }
   @media only screen and (min-width: 768px) {
     /*  */
+    width: 710px;
   }
   @media only screen and (min-width: 1024px) {
     width: 820px;

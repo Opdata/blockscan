@@ -7,11 +7,33 @@ import Map from '../../../Assets/Map.png';
 const Footer = styled.div`
   width: 100%;
   height: 20%;
-  padding: 32px 0 20px;
+
   font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
   background-image: linear-gradient(150deg, #19a0ff, #2d1582);
   background-attachment: fixed;
-  margin-top: 40px;
+
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    padding: 20px 2px;
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    /* width: 710px; */
+    padding: 32px 0 20px;
+  }
+  @media only screen and (min-width: 1024px) {
+    /* width: 820px; */
+  }
+  @media only screen and (min-width: 1200px) {
+    /* width: 950px; */
+  }
+  @media only screen and (min-width: 1400px) {
+    /* width: 1200px; */
+    /* width: 100%; */
+  }
 `;
 
 const FooterInner = styled.div`
@@ -22,11 +44,13 @@ const FooterInner = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
   }
-  @media only screen and (min-width: 480px) {
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
+    width: 95%;
   }
   @media only screen and (min-width: 768px) {
     /*  */
+    width: 710px;
   }
   @media only screen and (min-width: 1024px) {
     width: 820px;
