@@ -49,6 +49,7 @@ const TitleBox = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    font-size: 12px;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -96,6 +97,7 @@ const StyledSearchBox = styled.input`
     outline: none;
   }
   @media only screen and (max-width: 479.98px) {
+    width: 85%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -135,10 +137,11 @@ const StyledButton = styled.button`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    width: 15%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
-    width: 10%;
+    width: 15%;
   }
   @media only screen and (min-width: 768px) {
     width: 39px;
@@ -146,11 +149,12 @@ const StyledButton = styled.button`
   }
   @media only screen and (min-width: 1024px) {
     width: 41px;
-    /* 820 의 5퍼 // 1024 이하부터 아이콘으로 대체 */
+    /* 820 의 5퍼  */
   }
   @media only screen and (min-width: 1200px) {
     width: 45.5px;
     font-size: 10px;
+    /* 1024 이하부터 아이콘으로 대체 */
     /* 910 의 5퍼 */
   }
   @media only screen and (min-width: 1400px) {
@@ -164,7 +168,7 @@ const RenderSearchBar = () => {
   const width = InnerWidth();
 
   let history = useHistory();
-  const [option, setOption] = useState();
+  const [option, setOption] = useState([FilterData[0]]);
   const [text, setText] = useState();
 
   const onSelect = option => {
@@ -178,27 +182,32 @@ const RenderSearchBar = () => {
   const subMitRouting = () => {
     /* 데모 라우팅 , 백엔드 API 필요함*/
     /*데이터 존재 유무에따라 Not Found 페이지 필요함*/
+    //  수정 필요
     const value = option[0].value;
 
-    switch (value) {
-      case 'All': {
-        if (text.search('0x') === 0) {
-          history.push(`/tx/${text}`);
-        } else {
-          history.push(`/block/${text}`);
+    if (text !== undefined) {
+      switch (value) {
+        case 'All': {
+          if (text.search('0x') === 0) {
+            history.push(`/tx/${text}`);
+          } else {
+            history.push(`/block/${text}`);
+          }
+          break;
         }
-        break;
+        case 'Transaction': {
+          history.push(`/tx/${text}`);
+          break;
+        }
+        case 'Block': {
+          history.push(`/block/${text}`);
+          break;
+        }
+        default:
+          break;
       }
-      case 'Transaction': {
-        history.push(`/tx/${text}`);
-        break;
-      }
-      case 'Block': {
-        history.push(`/block/${text}`);
-        break;
-      }
-      default:
-        break;
+    } else {
+      // 404 page
     }
   };
 
@@ -237,8 +246,11 @@ const RenderSearchBar = () => {
               onInput(e.target.value);
             }}
           />
-          <StyledButton onClick={() => subMitRouting()}>
-            {width <= 1024 ? <FaSearch size='15px' /> : 'Search'}
+          <StyledButton
+            onClick={() => {
+              subMitRouting();
+            }}>
+            {width <= 1200 ? <FaSearch size='15px' /> : 'Search'}
           </StyledButton>
         </SearchBox>
       </SearchInner>

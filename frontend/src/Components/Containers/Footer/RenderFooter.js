@@ -14,10 +14,11 @@ const Footer = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    padding: 20px 0px;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
-    padding: 20px 2px;
+    padding: 20px 0px;
   }
   @media only screen and (min-width: 768px) {
     /*  */
@@ -43,6 +44,7 @@ const FooterInner = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    width: 95%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -98,7 +100,7 @@ const DarkNightMode = styled.button`
   background: rgba(248, 249, 250, 0.1);
   border-radius: 5px;
   padding: 5px;
-  /* 다크모드 소스 추가예정 */
+
   &:hover {
     background-color: ${props => props.theme.background};
     .hoverColor {
@@ -124,6 +126,9 @@ const YearsBox = styled.div`
 `;
 
 const RenderFooter = () => {
+  const DarkMode = () => {
+    // Dark 모드
+  };
   return (
     <Footer>
       <FooterInner>
@@ -139,7 +144,7 @@ const RenderFooter = () => {
             platform.
           </InfoBox>
           <DarkNightMode>
-            <FaMoon className='hoverColor' />
+            <FaMoon className='hoverColor' onClick={DarkMode()} />
           </DarkNightMode>
         </NameAndInfoBox>
         <StyledHr />

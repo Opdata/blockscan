@@ -18,6 +18,8 @@ const HeaderInner = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    width: 95%;
+    height: 55px;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -53,7 +55,27 @@ const HeaderLogoIcon = styled.div`
   background-repeat: no-repeat;
   width: 100%;
   height: 100%;
-  margin-top: 8px;
+  @media only screen and (max-width: 479.98px) {
+    /*  */
+    margin-top: 5px;
+  }
+  @media only screen and (min-width: 480px) and (max-width: 767px) {
+    /*  */
+    margin-top: 5px;
+  }
+  @media only screen and (min-width: 768px) {
+    /*  */
+    margin-top: 8px;
+  }
+  @media only screen and (min-width: 1024px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1200px) {
+    /*  */
+  }
+  @media only screen and (min-width: 1400px) {
+    /*  */
+  }
 `;
 
 const HeaderMenuDiv = styled.div`
@@ -73,6 +95,9 @@ const HeaderMenuBox = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    align-items: center;
+    margin: 15px 0;
+    font-size: 13px;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -171,19 +196,59 @@ const RenderHeader = () => {
           <HeaderMenuDiv>
             <HeaderMenuInner>
               <HeaderMenuBox>
-                <StyledLink to={`/`}>Home</StyledLink>
+                <StyledLink
+                  to={`/`}
+                  onClick={() => {
+                    if (menu === true) {
+                      setMenu(!menu);
+                    }
+                  }}>
+                  Home
+                </StyledLink>
               </HeaderMenuBox>
               <HeaderMenuBox>
-                <StyledLink to={`/blocks`}>Blocks</StyledLink>
+                <StyledLink
+                  to={`/blocks`}
+                  onClick={() => {
+                    if (menu === true) {
+                      setMenu(!menu);
+                    }
+                  }}>
+                  Blocks
+                </StyledLink>
               </HeaderMenuBox>
               <HeaderMenuBox>
-                <StyledLink to={`/txs`}>Transactions</StyledLink>
+                <StyledLink
+                  to={`/txs`}
+                  onClick={() => {
+                    if (menu === true) {
+                      setMenu(!menu);
+                    }
+                  }}>
+                  Transactions
+                </StyledLink>
               </HeaderMenuBox>
               <HeaderMenuBox>
-                <StyledLink to={`/`}>Resources</StyledLink>
+                <StyledLink
+                  to={`/`}
+                  onClick={() => {
+                    if (menu === true) {
+                      setMenu(!menu);
+                    }
+                  }}>
+                  Resources
+                </StyledLink>
               </HeaderMenuBox>
               <HeaderMenuBox>
-                <StyledLink to={`/`}>More</StyledLink>
+                <StyledLink
+                  to={`/`}
+                  onClick={() => {
+                    if (menu === true) {
+                      setMenu(!menu);
+                    }
+                  }}>
+                  More
+                </StyledLink>
               </HeaderMenuBox>
             </HeaderMenuInner>
           </HeaderMenuDiv>
@@ -193,19 +258,59 @@ const RenderHeader = () => {
         <SubMenu>
           <SubMenuInner>
             <HeaderMenuBox>
-              <StyledLink to={`/`}>Home</StyledLink>
+              <StyledLink
+                to={`/`}
+                onClick={() => {
+                  if (menu === true) {
+                    setMenu(!menu);
+                  }
+                }}>
+                Home
+              </StyledLink>
             </HeaderMenuBox>
             <HeaderMenuBox>
-              <StyledLink to={`/blocks`}>Blocks</StyledLink>
+              <StyledLink
+                to={`/blocks`}
+                onClick={() => {
+                  if (menu === true) {
+                    setMenu(!menu);
+                  }
+                }}>
+                Blocks
+              </StyledLink>
             </HeaderMenuBox>
             <HeaderMenuBox>
-              <StyledLink to={`/txs`}>Transactions</StyledLink>
+              <StyledLink
+                to={`/txs`}
+                onClick={() => {
+                  if (menu === true) {
+                    setMenu(!menu);
+                  }
+                }}>
+                Transactions
+              </StyledLink>
             </HeaderMenuBox>
             <HeaderMenuBox>
-              <StyledLink to={`/`}>Resources</StyledLink>
+              <StyledLink
+                to={`/`}
+                onClick={() => {
+                  if (menu === true) {
+                    setMenu(!menu);
+                  }
+                }}>
+                Resources
+              </StyledLink>
             </HeaderMenuBox>
             <HeaderMenuBox>
-              <StyledLink to={`/`}>More</StyledLink>
+              <StyledLink
+                to={`/`}
+                onClick={() => {
+                  if (menu === true) {
+                    setMenu(!menu);
+                  }
+                }}>
+                More
+              </StyledLink>
             </HeaderMenuBox>
           </SubMenuInner>
         </SubMenu>

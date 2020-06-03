@@ -14,6 +14,7 @@ const StyledDiv = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    flex-direction: column;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -48,6 +49,7 @@ const StyledListBox = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    margin-bottom: 20px;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -150,6 +152,7 @@ const StyledListItemInner = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    max-height: 364px;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -162,7 +165,7 @@ const StyledListItemInner = styled.div`
   @media only screen and (min-width: 1024px) {
     /*  */
     width: 388px;
-    max-height: 364px;
+    /* max-height: 364px; */
   }
   @media only screen and (min-width: 1200px) {
     width: 438px;

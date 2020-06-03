@@ -19,6 +19,7 @@ const EtherInfo = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    padding: 12px;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -47,6 +48,7 @@ const InfoInner = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    display: block;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -70,11 +72,13 @@ const InfoInner = styled.div`
 `;
 
 const SubInner = styled.div`
-  /* flex-direction: column; */
   display: block;
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    margin: 0;
+    padding: 0;
+    width: 100%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -130,6 +134,8 @@ const CharInner = styled.div`
 const ThirdInner = styled.div`
   @media only screen and (max-width: 479.98px) {
     /*  */
+    display: flex;
+    align-items: center;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -191,6 +197,7 @@ const TitleBox = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    font-size: 10px;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -260,6 +267,8 @@ const Styledhr = styled.hr`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    margin: 20px 0;
+    opacity: 0.75;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */

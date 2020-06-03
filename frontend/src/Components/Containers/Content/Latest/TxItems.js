@@ -25,7 +25,9 @@ const TxsIconDiv = styled.div`
   width: 10%;
   height: 100%;
   margin-right: 8px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const TxsIconBox = styled.div`
@@ -40,6 +42,7 @@ const TxsIconBox = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    height: 80%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -72,6 +75,7 @@ const HashTimestampBox = styled.div`
   /*  maxwidth*/
   @media only screen and (max-width: 479.98px) {
     /*  */
+    width: 18%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -111,6 +115,7 @@ const FromToDiv = styled.div`
   /* background-color: grey; */
   @media only screen and (max-width: 479.98px) {
     /*  */
+    width: 72%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -137,6 +142,7 @@ const TxDiv = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    max-width: 60%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */

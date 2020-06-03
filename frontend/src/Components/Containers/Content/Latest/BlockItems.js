@@ -42,6 +42,7 @@ const BlockIconBox = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    height: 80%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -76,6 +77,7 @@ const NumberElapseDiv = styled.div`
   /* maxwidth */
   @media only screen and (max-width: 479.98px) {
     /*  */
+    width: 18%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -114,6 +116,7 @@ const MinerTxEthDiv = styled.div`
   /* background-color: grey; */
   @media only screen and (max-width: 479.98px) {
     /*  */
+    width: 72%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
@@ -144,6 +147,7 @@ const MinerTxDiv = styled.div`
 
   @media only screen and (max-width: 479.98px) {
     /*  */
+    max-width: 60%;
   }
   @media only screen and (min-width: 480px) and (max-width: 767px) {
     /*  */
