@@ -2,13 +2,19 @@ import React, { useState, useEffect, useCallback } from 'react';
 import styled from 'styled-components';
 import qs from 'qs';
 import { Link, useHistory } from 'react-router-dom';
+import PixedTableWidth from '../../../../helper/PixedTableWidth';
+import { InnerWidth } from '../../../../helper/CustomHook';
 import { BLOCKSALL, TXSALL, VIEWTIME } from '../../../../Action/ActionTypes';
 import { GetAll } from '../../../../Action/api/Get';
 import { GetTime } from '../../../../Action/Time';
 import { CuttingData, DetailTimeToText } from '../../../../helper/translate';
 import { darken, lighten } from 'polished';
 
-const ListDiv = styled.div``;
+const ListDiv = styled.div`
+  @media only screen and (max-width: 1023px) {
+    margin-bottom: 30px;
+  }
+`;
 
 const TitleInner = styled.div`
   padding: 12px 0;
@@ -17,7 +23,15 @@ const TitleInner = styled.div`
 const Title = styled.div`
   font-size: 19.5px;
   padding-bottom: 12px;
-  border-bottom: 1px solid ${props => props.theme.etherinfo};
+
+  @media only screen and (max-width: 479.98px) {
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 768px) {
+    justify-content: space-between;
+    border-bottom: 1px solid ${props => props.theme.etherinfo};
+  }
 `;
 
 const SubTitle = styled.div`
@@ -35,8 +49,15 @@ const ContentInner = styled.div``;
 
 const ContentTitleNavigationBox = styled.div`
   display: flex;
-  justify-content: space-between;
   margin-bottom: 20px;
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 768px) {
+    justify-content: space-between;
+  }
 `;
 
 const ContentTitle = styled.p`
@@ -45,14 +66,15 @@ const ContentTitle = styled.p`
 `;
 
 const Navigation = styled.div`
-  width: 30%;
+  display: flex;
+
+  @media only screen and (max-width: 767px) {
+    margin-top: 20px;
+  }
 `;
 
 const NavigationBox = styled.div`
   display: flex;
-  width: fit-content;
-  justify-content: space-between;
-  float: right;
 `;
 
 const NavigationButton = styled.div`
@@ -86,6 +108,16 @@ const NavigationText = styled(Link)`
 
 const BlockListBox = styled.div`
   width: 100%;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    background-color: ${props => props.theme.background};
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: ${props => props.theme.scrollthumb};
+    border-radius: 8px;
+  }
 `;
 
 const BlockListTable = styled.table`
@@ -93,6 +125,10 @@ const BlockListTable = styled.table`
 `;
 
 const BlockAttributeBox = styled.thead`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  height: 38px;
   font-size: 15px;
   font-weight: 550;
   color: ${props => props.theme.draksubtitle};
@@ -102,29 +138,41 @@ const BlockAttributeBox = styled.thead`
 `;
 
 const Styledtr = styled.tr`
+  display: flex;
+  width: 100%;
+
   font-size: 13px;
-  border-bottom: 1px solid ${props => props.theme.etherinfo};
   :hover {
     background-color: ${props => props.theme.attribute};
   }
 `;
 
 const Styledth = styled.th`
-  padding: 10px;
   text-align: left;
-  border-bottom: 1px solid ${props => props.theme.etherinfo};
+  padding: 0 10px;
 `;
 
 const StyledTableBody = styled.tbody``;
 
 const Styledtd = styled.td`
-  table-layout: fixed;
-  max-width: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 13px 13px 20px 13px;
-  font-size: 13px;
+  font-size: ${props => (props.resize ? '11px' : '13px')};
   text-align: left;
+
+  @media only screen and (min-width: 768px) {
+    font-size: 12px;
+  }
+  @media only screen and (min-width: 1024px) {
+    font-size: ${props => (props.resize ? '12px' : '13px')};
+  }
+  @media only screen and (min-width: 1200px) {
+    font-size: ${props => (props.resize ? '11px' : '13px')};
+  }
+  @media only screen and (min-width: 1400px) {
+    font-size: 13px;
+  }
 `;
 
 const StyledLink = styled(Link)`
@@ -134,8 +182,15 @@ const StyledLink = styled(Link)`
 
 const ContentBottomBox = styled.div`
   display: flex;
-  justify-content: space-between;
-  margin: 12px 0;
+  margin-top: 12px;
+
+  @media only screen and (max-width: 767px) {
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: 768px) {
+    justify-content: space-between;
+  }
 `;
 
 const ShowCountBox = styled.div`
@@ -155,6 +210,8 @@ const StyeldSelect = styled.select`
 const RenderList = ({ location, path }) => {
   let p, pn;
   const history = useHistory();
+  const TableWidth = PixedTableWidth(path);
+  const Innerwidth = InnerWidth();
 
   if (location.search !== '') {
     const query = qs.parse(location.search, {
@@ -226,12 +283,14 @@ const RenderList = ({ location, path }) => {
         <ListDiv>
           <TitleInner>
             <Title>{path === 'blocks' ? 'Blocks' : 'Transactions'}</Title>
-            <SubTitle>
-              <span role='img' aria-label='light'>
-                💡 Feature Tip: Track historical data points of any address with the analytics
-                module !
-              </span>
-            </SubTitle>
+            {Innerwidth >= 768 && (
+              <SubTitle>
+                <span role='img' aria-label='light'>
+                  💡 Feature Tip: Track historical data points of any address with the analytics
+                  module !
+                </span>
+              </SubTitle>
+            )}
           </TitleInner>
           <ContentBox>
             <ContentInner>
@@ -323,31 +382,37 @@ const RenderList = ({ location, path }) => {
                 <BlockListTable>
                   <BlockAttributeBox>
                     <Styledtr>
-                      <Styledth width={path === 'blocks' ? '8%' : '14%'}>
+                      <Styledth width={TableWidth[0]}>
                         {path === 'blocks' ? 'Block' : 'Txn Hash'}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '15%' : '7%'}>
+                      <Styledth width={TableWidth[1]}>
                         {path === 'blocks' ? 'Age' : 'Block'}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '7%' : '17%'}>
-                        {path === 'blocks' ? 'Txn' : 'Age'}
-                      </Styledth>
-                      <Styledth width={path === 'blocks' ? '7%' : '18%'}>
+                      <Styledth width={TableWidth[2]}>{path === 'blocks' ? 'Txn' : 'Age'}</Styledth>
+                      <Styledth width={TableWidth[3]}>
                         {path === 'blocks' ? 'Uncles' : 'From'}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '20%' : '18%'}>
+                      <Styledth width={TableWidth[4]}>
                         {path === 'blocks' ? 'Miner' : 'To'}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '10%' : '17%'}>
-                        {path === 'blocks' ? 'Gas Used' : 'Value'}
+                      {Innerwidth >= 1024 && (
+                        <Styledth width={TableWidth[5]}>
+                          {path === 'blocks' ? 'Gas Used' : 'Value'}
+                        </Styledth>
+                      )}
+                      {Innerwidth >= 1200 && (
+                        <Styledth width={TableWidth[6]}>
+                          {path === 'blocks' ? 'Gas Limit' : '[Txn Fee]'}
+                        </Styledth>
+                      )}
+                      <Styledth width={TableWidth[7]}>
+                        {path === 'blocks'
+                          ? Innerwidth >= 1400
+                            ? 'Avg.Gas Price'
+                            : 'Avg.Gas'
+                          : null}
                       </Styledth>
-                      <Styledth width={path === 'blocks' ? '10%' : '9%'}>
-                        {path === 'blocks' ? 'Gas Limit' : '[Txn Fee]'}
-                      </Styledth>
-                      <Styledth width={path === 'blocks' ? '10%' : null}>
-                        {path === 'blocks' ? 'Avg.Gas Price' : null}
-                      </Styledth>
-                      <Styledth width={path === 'blocks' ? '13%' : null}>
+                      <Styledth width={TableWidth[8]}>
                         {path === 'blocks' ? 'Reward' : null}
                       </Styledth>
                     </Styledtr>
@@ -362,22 +427,33 @@ const RenderList = ({ location, path }) => {
                         const avgGasPrice = CuttingData(data.avgGasPrice, 2);
                         return (
                           <Styledtr key={index}>
-                            <Styledtd>
+                            <Styledtd width={TableWidth[0]}>
                               <StyledLink to={`/block/${data.number}`}>{data.number}</StyledLink>
                             </Styledtd>
-                            <Styledtd>{DetailTimeToText(Time, 'short')}</Styledtd>
-                            <Styledtd>
+                            <Styledtd resize width={TableWidth[1]}>
+                              {DetailTimeToText(Time, 'short')}
+                            </Styledtd>
+                            <Styledtd width={TableWidth[2]}>
                               <StyledLink to={'#'}>{data.txCount}</StyledLink>
                             </Styledtd>
-                            <Styledtd padding={0}>{data.uncles}</Styledtd>
-                            <Styledtd>
+                            <Styledtd width={TableWidth[3]} padding={0}>
+                              {data.uncles}
+                            </Styledtd>
+                            <Styledtd width={TableWidth[4]}>
                               <StyledLink to={`/address/${data.miner}`}>{data.miner}</StyledLink>
                             </Styledtd>
-                            <Styledtd>{data.gasUsed}</Styledtd>
-                            <Styledtd>{data.gasLimit}</Styledtd>
-                            <Styledtd>{avgGasPrice} Gwei</Styledtd>
-                            <Styledtd>{Reward} Ether</Styledtd>
-                            {/* <Styledtd>{data.gasUsedPercent}</Styledtd> */}
+                            {Innerwidth >= 1024 && (
+                              <Styledtd width={TableWidth[5]}>{data.gasUsed}</Styledtd>
+                            )}
+                            {Innerwidth >= 1200 && (
+                              <Styledtd width={TableWidth[6]}>{data.gasLimit}</Styledtd>
+                            )}
+                            <Styledtd resize width={TableWidth[7]}>
+                              {avgGasPrice} Gwei
+                            </Styledtd>
+                            <Styledtd resize width={TableWidth[8]}>
+                              {Reward} Ether
+                            </Styledtd>
                           </Styledtr>
                         );
                       })}

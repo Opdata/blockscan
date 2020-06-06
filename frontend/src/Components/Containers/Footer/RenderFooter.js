@@ -27,13 +27,11 @@ const Footer = styled.div`
   }
   @media only screen and (min-width: 1024px) {
     /* width: 820px; */
+    margin-top: 20px;
   }
   @media only screen and (min-width: 1200px) {
-    /* width: 950px; */
-  }
-  @media only screen and (min-width: 1400px) {
-    /* width: 1200px; */
-    /* width: 100%; */
+    /* width: 820px; */
+    margin-top: 40px;
   }
 `;
 

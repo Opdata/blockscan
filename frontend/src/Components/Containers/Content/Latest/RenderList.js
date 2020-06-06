@@ -30,7 +30,6 @@ const StyledDiv = styled.div`
     width: 820px;
     height: 450px;
     flex-direction: row;
-    margin-bottom: 50px;
   }
   @media only screen and (min-width: 1200px) {
     /*  */
