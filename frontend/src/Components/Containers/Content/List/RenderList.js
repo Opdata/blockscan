@@ -122,6 +122,14 @@ const BlockListBox = styled.div`
 
 const BlockListTable = styled.table`
   width: 100%;
+
+  @media only screen and (max-width: 767px) {
+    display: table;
+  }
+  @media only screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const BlockAttributeBox = styled.thead`
@@ -152,12 +160,16 @@ const Styledth = styled.th`
   padding: 0 10px;
 `;
 
-const StyledTableBody = styled.tbody``;
+const StyledTableBody = styled.tbody`
+  @media only screen and (min-width: 1400px) {
+    width: 100%;
+  }
+`;
 
 const Styledtd = styled.td`
   overflow: hidden;
   text-overflow: ellipsis;
-  padding: 13px 13px 20px 13px;
+  padding: 13px 10px 20px 10px;
   font-size: ${props => (props.resize ? '11px' : '13px')};
   text-align: left;
 
@@ -383,6 +395,7 @@ const RenderList = ({ location, path }) => {
                   <BlockAttributeBox>
                     <Styledtr>
                       <Styledth width={TableWidth[0]}>
+                        {console.log(TableWidth)}
                         {path === 'blocks' ? 'Block' : 'Txn Hash'}
                       </Styledth>
                       <Styledth width={TableWidth[1]}>
@@ -395,26 +408,65 @@ const RenderList = ({ location, path }) => {
                       <Styledth width={TableWidth[4]}>
                         {path === 'blocks' ? 'Miner' : 'To'}
                       </Styledth>
-                      {Innerwidth >= 1024 && (
-                        <Styledth width={TableWidth[5]}>
-                          {path === 'blocks' ? 'Gas Used' : 'Value'}
-                        </Styledth>
+                      {Innerwidth < 768 && (
+                        <>
+                          <Styledth width={TableWidth[5]}>
+                            {path === 'blocks' ? 'Gas Used' : 'Value'}
+                          </Styledth>
+                          <Styledth width={TableWidth[6]}>
+                            {path === 'blocks' ? 'Gas Limit' : '[Txn Fee]'}
+                          </Styledth>
+                          {path === 'blocks' && (
+                            <>
+                              <Styledth width={TableWidth[7]}>
+                                {Innerwidth >= 1400 ? 'Avg.Gas Price' : 'Avg.Gas'}
+                              </Styledth>
+                              <Styledth width={TableWidth[8]}>Reward</Styledth>
+                            </>
+                          )}
+                        </>
                       )}
+                      {Innerwidth >= 768 && Innerwidth < 1024 && (
+                        <>
+                          {path === 'blocks' && (
+                            <>
+                              <Styledth width={TableWidth[7]}>
+                                {Innerwidth >= 1400 ? 'Avg.Gas Price' : 'Avg.Gas'}
+                              </Styledth>
+                              <Styledth width={TableWidth[8]}>Reward</Styledth>
+                            </>
+                          )}
+                        </>
+                      )}
+                      {Innerwidth < 1200 &&
+                        Innerwidth >= 1024 &&
+                        (path === 'blocks' ? (
+                          <>
+                            <Styledth width={TableWidth[5]}>Gas Used</Styledth>
+                            <Styledth width={TableWidth[7]}>Avg.Gas</Styledth>
+                            <Styledth width={TableWidth[8]}>Reward</Styledth>
+                          </>
+                        ) : (
+                          <Styledth width={TableWidth[5]}>Value</Styledth>
+                        ))}
                       {Innerwidth >= 1200 && (
-                        <Styledth width={TableWidth[6]}>
-                          {path === 'blocks' ? 'Gas Limit' : '[Txn Fee]'}
-                        </Styledth>
+                        <>
+                          <Styledth width={TableWidth[5]}>
+                            {path === 'blocks' ? 'Gas Used' : 'Value'}
+                          </Styledth>
+                          <Styledth width={TableWidth[6]}>
+                            {path === 'blocks' ? 'Gas Limit' : '[Txn Fee]'}
+                          </Styledth>
+                          {path === 'blocks' && (
+                            <>
+                              <Styledth width={TableWidth[7]}>
+                                {Innerwidth >= 1400 ? 'Avg.Gas Price' : 'Avg.Gas'}
+                              </Styledth>
+                              <Styledth width={TableWidth[8]}>Reward</Styledth>
+                            </>
+                          )}
+                        </>
                       )}
-                      <Styledth width={TableWidth[7]}>
-                        {path === 'blocks'
-                          ? Innerwidth >= 1400
-                            ? 'Avg.Gas Price'
-                            : 'Avg.Gas'
-                          : null}
-                      </Styledth>
-                      <Styledth width={TableWidth[8]}>
-                        {path === 'blocks' ? 'Reward' : null}
-                      </Styledth>
                     </Styledtr>
                   </BlockAttributeBox>
                   <StyledTableBody>
@@ -442,11 +494,20 @@ const RenderList = ({ location, path }) => {
                             <Styledtd width={TableWidth[4]}>
                               <StyledLink to={`/address/${data.miner}`}>{data.miner}</StyledLink>
                             </Styledtd>
-                            {Innerwidth >= 1024 && (
+                            {Innerwidth < 768 && (
+                              <>
+                                <Styledtd width={TableWidth[5]}>{data.gasUsed}</Styledtd>
+                                <Styledtd width={TableWidth[6]}>{data.gasLimit}</Styledtd>
+                              </>
+                            )}
+                            {Innerwidth >= 1024 && Innerwidth < 1200 && (
                               <Styledtd width={TableWidth[5]}>{data.gasUsed}</Styledtd>
                             )}
                             {Innerwidth >= 1200 && (
-                              <Styledtd width={TableWidth[6]}>{data.gasLimit}</Styledtd>
+                              <>
+                                <Styledtd width={TableWidth[5]}>{data.gasUsed}</Styledtd>
+                                <Styledtd width={TableWidth[6]}>{data.gasLimit}</Styledtd>
+                              </>
                             )}
                             <Styledtd resize width={TableWidth[7]}>
                               {avgGasPrice} Gwei
@@ -461,26 +522,57 @@ const RenderList = ({ location, path }) => {
                       path === 'txs' &&
                       datas.map((data, index) => {
                         const Time = GetTime(data.timestamp, VIEWTIME);
+                        const Value = CuttingData(data.value, 5);
                         const Txfee = CuttingData(data.txfee, 6);
                         return (
                           <Styledtr key={index}>
-                            <Styledtd>
+                            <Styledtd width={TableWidth[0]}>
                               <StyledLink to={`/tx/${data.hash}`}>{data.hash}</StyledLink>
                             </Styledtd>
-                            <Styledtd>
+                            <Styledtd width={TableWidth[1]}>
                               <StyledLink to={`/block/${data.blocksnumber}`}>
                                 {data.blocksnumber}
                               </StyledLink>
                             </Styledtd>
-                            <Styledtd>{DetailTimeToText(Time, 'short')}</Styledtd>
-                            <Styledtd>
+                            <Styledtd
+                              resize
+                              width={TableWidth[2]}
+                              style={
+                                Innerwidth > 1024 && Innerwidth < 1200 ? { maxWidth: '15%' } : null
+                              }>
+                              {DetailTimeToText(Time, 'short')}
+                            </Styledtd>
+                            <Styledtd width={TableWidth[3]}>
                               <StyledLink to={'#'}>{data.from}</StyledLink>
                             </Styledtd>
-                            <Styledtd padding={0}>
+                            <Styledtd width={TableWidth[4]} padding={0}>
                               <StyledLink to={'#'}>{data.to}</StyledLink>
                             </Styledtd>
-                            <Styledtd>{data.value} Value</Styledtd>
-                            <Styledtd>{Txfee}</Styledtd>
+                            {Innerwidth < 768 && (
+                              <>
+                                <Styledtd resize width={TableWidth[5]}>
+                                  {Value} Value
+                                </Styledtd>
+                                <Styledtd resize width={TableWidth[6]}>
+                                  {Txfee}
+                                </Styledtd>
+                              </>
+                            )}
+                            {Innerwidth < 1200 && Innerwidth >= 1024 && (
+                              <Styledtd resize width={TableWidth[6]}>
+                                {Txfee}
+                              </Styledtd>
+                            )}
+                            {Innerwidth >= 1200 && (
+                              <>
+                                <Styledtd resize width={TableWidth[5]}>
+                                  {Value} Value
+                                </Styledtd>
+                                <Styledtd resize width={TableWidth[6]}>
+                                  {Txfee}
+                                </Styledtd>
+                              </>
+                            )}
                           </Styledtr>
                         );
                       })}
