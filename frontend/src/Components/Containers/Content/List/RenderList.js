@@ -282,11 +282,8 @@ const RenderList = ({ location, path }) => {
 
   useEffect(() => {
     GetDatas();
-  }, [GetDatas]);
-
-  useEffect(() => {
     return () => {};
-  }, []);
+  }, [GetDatas]);
 
   return (
     <>
@@ -395,7 +392,6 @@ const RenderList = ({ location, path }) => {
                   <BlockAttributeBox>
                     <Styledtr>
                       <Styledth width={TableWidth[0]}>
-                        {console.log(TableWidth)}
                         {path === 'blocks' ? 'Block' : 'Txn Hash'}
                       </Styledth>
                       <Styledth width={TableWidth[1]}>
