@@ -1,0 +1,35 @@
+version: '3.1'
+networks:
+  app-tier:
+    driver: bridge
+services:
+  batch-db:
+    image: mysql
+    container_name: batch-db
+    ports:
+      - 3306:3306
+    volumes:
+      - /docker_volume/blockscan:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=ss17
+      - MYSQL_USER=gyu
+      - MYSQL_PASSWORD=ss17
+      - MYSQL_DATABASE=blockscan
+    expose:
+      - '3306'
+  node:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    container_name: batch-backend
+    ports:
+      - '3050:3050'
+    volumes:
+      - ./:/usr/src/app
+    expose:
+      - '3050'
+    links:
+      - batch-db
+    depends_on:
+      - batch-db
+    restart: always
