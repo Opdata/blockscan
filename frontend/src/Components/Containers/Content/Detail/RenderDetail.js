@@ -144,31 +144,6 @@ const ValueInner = styled.div`
   padding: 10px 0px;
 `;
 
-const StatusDiv = styled.div`
-  background-color: ${props => (props.Success ? props.theme.success : props.theme.fail)};
-  color: ${props => (props.Success ? props.theme.successtext : props.theme.failtext)};
-  border-radius: 0.25px;
-  padding: 0px 11px;
-  .IconColor {
-    color: ${props => (props.Success ? props.theme.successtext : props.theme.failtext)};
-  }
-`;
-
-const StatusInner = styled.div`
-  font-size: 14px;
-`;
-
-const ValueDiv = styled.div`
-  display: flex;
-  background-color: ${props => props.theme.etherbackgroundcolor};
-  border-radius: 5px;
-  padding: 0 8px;
-`;
-
-const ValueInner = styled.div`
-  font-size: 14px;
-`;
-
 const TransactionDiv = styled.div`
   border-radius: 7px;
   height: 90%;
