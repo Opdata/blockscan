@@ -5,14 +5,14 @@ const web3Utils = require('web3-utils');
 const app = express();
 
 // INFURA API
-const { getBlockByNumber } = require('external/infura');
+const { getBlockByNumber } = require('./external/infura');
 
 // services
-const { blockParse, txsParse, updateTxError } = require('services');
+const { blockParse, txsParse, updateTxError } = require('./services');
 
-const { selectAllBlocks, insertBlock, selectJoinBlockAndTxs } = require('DB/query/blocks');
-const { selectAllTxs, insertTxs, selectTxs, testTx } = require('DB/query/txs');
-const sequelize = require('DB/models').sequelize;
+const { selectAllBlocks, insertBlock, selectJoinBlockAndTxs } = require('./DB/query/blocks');
+const { selectAllTxs, insertTxs, selectTxs, testTx } = require('./DB/query/txs');
+const sequelize = require('./DB/models').sequelize;
 sequelize
   .authenticate()
   .then(() => {
@@ -26,7 +26,7 @@ sequelize
   });
 
 global.errorArray = [];
-global.number = 9700095;
+global.number = 10683963;
 
 const main = async number => {
   const BASE_BLOCK_REWARD = 2;
@@ -70,7 +70,7 @@ const errorHandle = async () => {
   }
 };
 
-const job = cron.schedule('*/15 * * * * *', async function() {
+const job = cron.schedule('*/15 * * * * *', async function () {
   const result = await testTx();
   for (tx of result) {
     global.errorArray.push(tx['hash']);

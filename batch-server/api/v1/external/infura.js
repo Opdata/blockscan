@@ -2,7 +2,7 @@ require('dotenv').config();
 const axios = require('axios');
 
 // CUSTOM API
-const { intToHex } = require('helper/translate');
+const { intToHex } = require('../helper/translate');
 
 const getBlockByNumber = number => {
   if (typeof number === 'number') {

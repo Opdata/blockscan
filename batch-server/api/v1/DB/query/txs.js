@@ -1,6 +1,6 @@
-const db = require('DB/models');
+const db = require('../models');
 const { Txs } = db;
-const { hexToInt } = require('helper/translate');
+const { hexToInt } = require('../../helper/translate');
 
 const selectAllTxs = async () => {
   const result = await Txs.findAll({ raw: true });

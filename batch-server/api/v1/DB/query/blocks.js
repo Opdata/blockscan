@@ -1,6 +1,6 @@
-const db = require('DB/models');
+const db = require('../../DB/models');
 const { Blocks, Txs } = db;
-const { intToHex } = require('helper/translate');
+const { intToHex } = require('../../helper/translate');
 
 const selectBlockOfNumber = async number => {
   try {

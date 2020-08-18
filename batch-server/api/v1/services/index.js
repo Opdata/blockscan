@@ -3,14 +3,14 @@ const {
   getBlockByNumber,
   getTransactionReceipt,
   getUncleByBlockHashAndIndex,
-} = require('external/infura');
+} = require('../external/infura');
 
 // helper
-const { intToHex, hexToInt } = require('helper/translate');
+const { intToHex, hexToInt } = require('../helper/translate');
 
 // Query
-const { selectTxOfHash, updateTx } = require('DB/query/txs');
-const { selectBlockOfNumber, updateBlock } = require('DB/query/blocks');
+const { selectTxOfHash, updateTx } = require('../DB/query/txs');
+const { selectBlockOfNumber, updateBlock } = require('../DB/query/blocks');
 
 const getUnclesReward = async (block, uncles) => {
   const { hash, number } = block;
