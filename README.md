@@ -41,6 +41,6 @@
 
 # URL
 
-URL : http://blockscan.shop/ </br>
+URL : https://blockscan.netlify.app/ </br>
 Github : https://github.com/IGMD/blockscan </br>
 Project Notion : https://www.notion.so/IGMM-BLOCK-EXPLORER-88a81bf42fbc40b2b614724562dde11b
